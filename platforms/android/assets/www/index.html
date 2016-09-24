@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=devicewidth,initial-scale=1">
+		 <meta charset="utf-8">
+			 <title>Contatos</title>
+			 <link rel="stylesheet" href="icons/material.css">
+			 <link rel="stylesheet" href="css/materialize.min.css">
+			 <link rel="stylesheet" href="css/estilos.css">
+
+		
+		<button id="exibirNovoContato" class="btn deep-red waves-effect waveslight modal-close" onmouseover="javascript:mostraNovoContato();">Novo Contato</button>
+		<button id="listaContatos" class="btn deep-red waves-effect waveslight modal-close" onmouseover="javascript:mostraListaContato();">Listar Contatos</button>
+		<button id="removerContatoDigitado" class="btn deep-red waves-effect waveslight modal-close" onmouseover="javascript:mostraRemoverContato();">Remover Contatos</button>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<div id="divNovoContato">
+			<h2> Adicionar Contato </h2>
+			<input type="text" id="nome"></input>
+			<input type="text" id="numero"></input>
+			<button id="novoContato" class="btn deep-red waves-effect waveslight modal-close">Novo Contato</button>
+		</div>
+		<br>
+		
+			<div id="listagemdeContatos">
+				<h2> Listagem de Contatos </h2>
+				<div id="contato"> 
+				</div>
+			</div>
+
+		<div id="AbaRemover">
+				<h2> Remover Contato </h2>
+				<input type="text" id="nomeContato"></input>
+				<button id="removerContato" class="btn deep-red waves-effect waveslight modal-close">Remover</button>
+		</div>
+		
+		
+		<script src="js/app.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="cordova.js"></script>
+	</body>
+</html>

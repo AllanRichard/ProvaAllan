@@ -1,0 +1,17 @@
+.tabs .indicator 
+{
+ 	background-color: #66FFCC;
+}
+
+.btn 
+{
+	float: left;
+	top: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.material-icons
+{
+}
+
