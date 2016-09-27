@@ -57,7 +57,7 @@ function listarContatos() {
    contatoDiv.innerHTML = "";
    function sucesso(contacts) {
       for (var i = 0; i < contacts.length; i++) {
-         contatoDiv.innerHTML += "<b>" + contacts[i].displayName+"</b><br/>"+contacts[i].phoneNumbers[0].value+"<br/>";
+         contatoDiv.innerHTML += "<b>" + contacts[i].displayName+"</b><br/>"+contacts[i].phoneNumbers[0].value +"<button onclick='removerContato(\"" + contacts[i].displayName + "\")'> Remover </button>" + "<br/>";;
       }
    }
   
@@ -67,31 +67,24 @@ function listarContatos() {
   
 }
 
-function removerContato(nome)
-{
-  var options = new ContractFindOptions();
-  var nomeContato = document.getElementById("nomeContato").value;
-  options.filter = nomeContato;
-  options.multiple = false;
-  //fields = ["displayName"];
-  var excluirContato = navigator.contacts.find({"displayName": nomeContato}, buscarContatoOk, buscarContatoErro, options);
-
-  function buscarContatoOk(contacts)
-  {
-    var contact = contacts[0];
-    contact.remove(removerContatoOK, removerContatoErro);
-    function removerContatoOk(contact)
-    {
-      alert("Contato excluido");
-      listarContatos();
-    }
-    function removerContatoErro(message)
-    {
+function removerContato(nome) {
+   var options = new ContactFindOptions();
+   options.filter = nome;
+   options.multiple = false;
+   fields = ["displayName"];
+   navigator.contacts.find(fields, buscarContatoOk, buscarContatoErro, options);
+   function buscarContatoOk(contacts) {
+      var contact = contacts[0];
+      contact.remove(removerContatoOk, removerContatoErro);
+      function removerContatoOk(contact) {
+         alert("Contato Excluido!");
+         listarContatos();
+      }
+      function removerContatoErro(message) {
+         alert('Falha: ' + message);
+      }
+   }
+   function buscarContatoErro(message) {
       alert('Falha: ' + message);
-    }
-  }
-  function buscarContatoErro(message)
-  {
-    alert('Falha: ' + message);
-  }
+   }
 }
